@@ -21,23 +21,23 @@ public class PanelGame extends JPanel {
             @Override
             public void mouseClicked(MouseEvent e) {
                 if (isTargetHit(e.getX(), e.getY())) {
-                    System.out.println("Cible touchée !");
+                    System.out.println("Hit !");
 					changeTarget();
 
                 } else {
-                    System.out.println("Cible manquée !");
+                    System.out.println("Miss !\t");
                 }
             }
         });
     }
 
-	public void changeTarget()
-	{
-        int newX = (int) (Math.random() * this.frame.getWidth());
-        int newY = (int) (Math.random() * this.frame.getHeight());
-        this.target = new Target(newX, newY, 20);
+    public void changeTarget() {
+        int rayon = this.target.getRayon();
+        int newX = (int) (Math.random() * (this.frame.getWidth() - 2 * rayon)) + rayon;
+        int newY = (int) (Math.random() * (this.frame.getHeight() - 2 * rayon)) + rayon;
+        this.target = new Target(newX, newY, rayon);
         this.repaint();
-	}
+    }
 
     // Other Methods
     private boolean isTargetHit(int x, int y) {
@@ -50,9 +50,16 @@ public class PanelGame extends JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.setColor(Color.GREEN);
 
-        // Dessiner la cible
+
+        // Drawing target
+        g.setColor(Color.BLACK);
+        g.drawOval(this.target.getX() - (this.target.getRayon() / 2),
+                    this.target.getY() - (this.target.getRayon() / 2),
+                    this.target.getRayon(),
+                    this.target.getRayon());
+                    
+        g.setColor(Color.GREEN);
         g.fillOval(this.target.getX() - (this.target.getRayon() / 2),
 					this.target.getY() - (this.target.getRayon() / 2),
 					this.target.getRayon(),
