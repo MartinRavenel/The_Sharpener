@@ -3,12 +3,12 @@ package model;
 public class Target {
 	private int x;
 	private int y;
-	private int radius;
+	private int diamaeter;
 
-	public Target(int x, int y, int radius) {
+	public Target(int x, int y, int diamaeter) {
 		this.x = x;
 		this.y = y;
-		this.radius = radius;
+		this.diamaeter = diamaeter;
 	}
 
 	// Getters
@@ -20,8 +20,8 @@ public class Target {
 		return this.y;
 	}
 
-	public int getRadius() {
-		return this.radius;
+	public int getDiameter() {
+		return this.diamaeter;
 	}
 
 	// Setters
@@ -33,11 +33,11 @@ public class Target {
 		this.y = y;
 	}
 
-	public void setRadius(int radius) {
-		this.radius = radius;
+	public void setDiameter(int diamaeter) {
+		this.diamaeter = diamaeter;
 	}
 	
 	public String toString() {
-		return "Target (" + x + " ; " + y + ") | r = " + this.radius;
+		return "Target (" + x + " ; " + y + ") | r = " + this.diamaeter;
 	}
 }
