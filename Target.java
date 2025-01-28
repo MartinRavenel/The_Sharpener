@@ -1,13 +1,10 @@
 
-
-public class Target
-{
+public class Target {
 	private int x;
 	private int y;
 	private int rayon;
 
-	public Target(int x, int y, int rayon)
-	{
+	public Target(int x, int y, int rayon) {
 		this.x = x;
 		this.y = y;
 		this.rayon = rayon;
@@ -25,9 +22,8 @@ public class Target
 	public int getRayon() {
 		return rayon;
 	}
-	
-	public String toString()
-	{
+
+	public String toString() {
 		return "Target (" + x + " ; " + y + ") | r = " + rayon;
 	}
 }

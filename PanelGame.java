@@ -31,19 +31,19 @@ public class PanelGame extends JPanel {
         });
     }
 
+    // Other Methods
+    private boolean isTargetHit(int x, int y) {
+        double distance = Math.sqrt(Math.pow(this.target.getX() - x, 2) + Math.pow(this.target.getY() - y, 2));
+		
+        return distance <= this.target.getRayon() / 2;
+    }
+
     public void changeTarget() {
         int rayon = this.target.getRayon();
         int newX = (int) (Math.random() * (this.frame.getWidth() - 2 * rayon)) + rayon;
         int newY = (int) (Math.random() * (this.frame.getHeight() - 2 * rayon)) + rayon;
         this.target = new Target(newX, newY, rayon);
         this.repaint();
-    }
-
-    // Other Methods
-    private boolean isTargetHit(int x, int y) {
-        double distance = Math.sqrt(Math.pow(this.target.getX() - x, 2) + Math.pow(this.target.getY() - y, 2));
-		
-        return distance <= this.target.getRayon() / 2;
     }
 
 	//Drawing method
