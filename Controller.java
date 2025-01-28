@@ -1,3 +1,6 @@
+import model.*;
+import view.*;
+
 public class Controller{
 	private FrameGame frame;
 
